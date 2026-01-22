@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AlunoModule } from './aluno/aluno.module';
+import { Aluno } from './aluno/entities/aluno.entity';
 
 @Module({
   imports: [
@@ -10,9 +12,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_move',
-      entities: [],
+      entities: [Aluno],
       synchronize: true,
     }),
+    AlunoModule,
   ],
   controllers: [],
   providers: [],
