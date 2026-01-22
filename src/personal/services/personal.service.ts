@@ -26,6 +26,7 @@ export class PersonalService {
 
     return personal;
   }
+
   async findAllByNome(nome: string): Promise<Personal[]> {
     return await this.personalRepository.find({
       where: {
