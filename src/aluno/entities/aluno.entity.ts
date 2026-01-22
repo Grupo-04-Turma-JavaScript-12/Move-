@@ -13,7 +13,7 @@ export class Aluno {
   @IsNotEmpty()
   @IsMobilePhone('pt-BR')
   @Column()
-  telefone: number;
+  telefone: string;
 
   @IsNotEmpty()
   // @isPositive()
@@ -24,4 +24,14 @@ export class Aluno {
   // @isPositive()
   @Column('decimal', { precision: 5, scale: 2, nullable: false })
   peso: number;
+
+  // @ManyToOne(() => Categoria, (aluno) => categoria.aluno, {
+  //   onDelete: 'CASCADE',
+  // })
+  // tema: Categoria;
+
+  // @ManyToOne(() => Personal, (personal) => personal.aluno, {
+  //   onDelete: 'CASCADE',
+  // })
+  // usuario: Personal;
 }
