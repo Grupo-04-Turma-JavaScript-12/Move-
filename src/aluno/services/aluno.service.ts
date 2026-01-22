@@ -1,25 +1,27 @@
 import {
-    HttpException,
-    HttpStatus,
-    Injectable,
-    NotFoundException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { Aluno } from '../entities/aluno.entity';
+import { CategoriaService } from '../../categoria/services/categoria.service';
 
 @Injectable()
 export class AlunoService {
   constructor(
     @InjectRepository(Aluno)
     private alunoRepository: Repository<Aluno>,
+    private categoriaService: CategoriaService,
   ) {}
 
   async findAll(): Promise<Aluno[]> {
     return await this.alunoRepository.find({
       relations: {
-        // categoria: true,
-        // personal: true,
+        categoria: true,
+        personal: true,
       },
     });
   }
@@ -30,8 +32,8 @@ export class AlunoService {
         id,
       },
       relations: {
-        // categoria: true,
-        // personal: true,
+        categoria: true,
+        personal: true,
       },
     });
     if (!aluno) {
@@ -54,14 +56,14 @@ export class AlunoService {
   }
 
   async create(aluno: Aluno): Promise<Aluno> {
-    // await this.categoriaService.findById(aluno.categoria.id);
+    await this.categoriaService.findById(aluno.categoria.id);
     return await this.alunoRepository.save(aluno);
   }
 
   async update(aluno: Aluno): Promise<Aluno> {
     await this.findById(aluno.id);
 
-    // await this.categoriaService.findById(aluno.categoria.id);
+    await this.categoriaService.findById(aluno.categoria.id);
 
     return await this.alunoRepository.save(aluno);
   }

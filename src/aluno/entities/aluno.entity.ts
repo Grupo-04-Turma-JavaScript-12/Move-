@@ -1,5 +1,7 @@
 import { IsMobilePhone, IsNotEmpty } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Categoria } from '../../categoria/entities/categoria.entity';
+import { Personal } from '../../personal/entities/personal.entity';
 
 @Entity({ name: 'tb_alunos' })
 export class Aluno {
@@ -25,13 +27,13 @@ export class Aluno {
   @Column('decimal', { precision: 5, scale: 2, nullable: false })
   peso: number;
 
-  // @ManyToOne(() => Categoria, (aluno) => categoria.aluno, {
-  //   onDelete: 'CASCADE',
-  // })
-  // tema: Categoria;
+  @ManyToOne(() => Categoria, (categoria) => categoria.aluno, {
+    onDelete: 'CASCADE',
+  })
+  categoria: Categoria;
 
-  // @ManyToOne(() => Personal, (personal) => personal.aluno, {
-  //   onDelete: 'CASCADE',
-  // })
-  // usuario: Personal;
+  @ManyToOne(() => Personal, (personal) => personal.aluno, {
+    onDelete: 'CASCADE',
+  })
+  personal: Personal;
 }
