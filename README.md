@@ -126,28 +126,35 @@ Segundo o escopo, o sistema foi desenvolvido:
 Em ambiente web
 Com estrutura organizada e segura
 Com banco de dados relacional para garantir integridade das informações
-Observação: se o seu repositório tiver a stack exata (ex.: Node/Nest, Java/Spring etc.), você pode detalhar aqui com nomes/versões.
+Tecnologias:
+ - Nest
+ - MySQL
+ - TypeORM
+ - Insomnia
+ - class-validator
+ - Typescript
 
 ## 🖥️ Requisitos do Sistema
-Ambiente para rodar a aplicação (ex.: Node.js, Java, etc. — conforme seu projeto)
+Ambiente para rodar a aplicação: Node.js
 Banco de dados relacional (ex.: MySQL, PostgreSQL etc.)
-Ferramenta de teste de API (recomendado): Insomnia ou Postman
+Ferramenta de teste de API: Insomnia ou Postman
+
 ### 🛠️ Instalação
 1. Clone o repositório:
 ```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+git clone https://github.com/Grupo-04-Turma-JavaScript-12/Move-
 ```
 2. Entre na pasta do projeto:
 ```bash
-cd SEU-REPOSITORIO
+cd move-
 ```
-3. Instale as dependências (caso seja Node.js):
+3. Instale as dependências :
 ```bash
 npm install
 ```
-4. Inicie o projeto (ajuste o comando conforme o seu package.json):
+4. Inicie o projeto:
 ```bash
-npm run start
+npm run start:dev
 ```
 ### ⚙️ Configuração Inicial
 1. Crie um arquivo .env na raiz do projeto (ajuste os nomes conforme sua aplicação):
